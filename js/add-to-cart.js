@@ -20,6 +20,8 @@ var menu = [
 ];
 // set array of object to browser local storage
 localStorage.setItem("menu", JSON.stringify(menu));
+cart = [];
+localStorage.setItem("cart", JSON.stringify(cart));
 
 // add item to cart function
 function addItem(id) {

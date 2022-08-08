@@ -31,15 +31,34 @@
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
+    <!-- custom js add t0 cart -->
+    <script src="js/add-to-cart.js"></script>
+    <script src="js/show-cart.js"></script>
+    <script src="js/update-cart-number.js"></script>
+
 </head>
 
-<body data-spy="scroll" data-target="#navbar">
+<body data-spy="scroll" data-target="#navbar" class="static-layout">
+    <!-- cart modal -->
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- cart start -->
+                <section class="h-100" style="background-color: #eee;" id="cart-section">
+                </section>
+                <!-- cart end -->
+            </div>
+        </div>
+    </div>
+    <!-- cart modal end -->
     <div id="side-nav" class="sidenav">
         <a href="javascript:void(0)" id="side-nav-close">&times;</a>
 
         <div class="sidenav-content">
             <p>
-                kariya drive
+                Kuncen WB1, Wirobrajan 10010, DIY
             </p>
             <p>
                 <span class="fs-16 primary-color">(+1) 4379887917</span>
@@ -68,6 +87,8 @@
 
     </div>
     <div id="canvas-overlay"></div>
+
+    <!-- Nav bar Menu  -->
     <div class="boxed-page">
         <nav id="navbar-header" class="navbar navbar-expand-lg">
             <div class="container">
@@ -82,14 +103,14 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex justify-content-between">
-                        <!-- <li class="nav-item only-desktop">
+                        <li class="nav-item only-desktop">
                             <a class="nav-link" id="side-nav-open" href="#">
                                 <span class="lnr lnr-menu"></span>
                             </a>
-                        </li> -->
+                        </li>
                         <div class="d-flex flex-lg-row flex-column">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="index.html">Home </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html">About</a>
@@ -132,188 +153,82 @@
                             </li>
                         </div>
                         <li class="nav-item">
-                            <a id="side-search-open" class="nav-link" href="#">
-                                <span class="lnr lnr-magnifier"></span>
+                            <a id="side-search-open" class="nav-link" href="#" data-toggle="modal" onclick="loadCart()"
+                                data-target=".bd-example-modal-lg">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="badge badge-light" id="cart-number"></span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav> <!-- Team Section -->
-        <section id="gtco-team" class="bg-white section-padding">
+        </nav>
+        
+
+        <!-- Order Section -->
+        <section id="gtco-menu" class="section-padding" style="background-color: #f4f1de;">
             <div class="container">
                 <div class="section-content">
-                    <div class="heading-section text-center">
-                        <span class="subheading">
-                            Specialties
-                        </span>
-                        <h2>
-                            Our Team
-                        </h2>
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <div class="heading-section text-center">
+                                <span class="subheading">
+                                    Ordered Items
+                                </span>
+                                <h2>
+                                    List of orders
+                                </h2>
+                            </div>  
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-1.jpg" alt="">
-                                <div class="team-desc">
-                                    <h4 class="mb-0">Yash Patel</h4>
-                                    <p class="mb-1">CEO</p>
-                                    <ul class="list-inline mb-0 team-social-links">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                        <div class="col-lg-12 menu-wrap">
+                            <div class="card pt-3 menus d-flex align-items-center">
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich (4)</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted">Ordered By: John Doe</p>
+                                </div>
+                            </div>
+                            <div class="card pt-3 menus d-flex align-items-center">
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich (6)</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted">Ordered By: Alexander Griffin</p>
+                                </div>
+                            </div>
+                            <div class="card pt-3 menus d-flex align-items-center">
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich (1)</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted">Ordered By: Peter Christian</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-2.jpg" alt="">
-                                <div class="team-desc">
-                                    <h4 class="mb-0">Anas Malek</h4>
-                                    <p class="mb-1">Chef</p>
-                                    <ul class="list-inline mb-0 team-social-links">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-4.jpg" alt="">
-                                <div class="team-desc">
-                                    <h4 class="mb-0">Parth Prajapati</h4>
-                                    <p class="mb-1">Chef</p>
-                                    <ul class="list-inline mb-0 team-social-links">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-3.jpg" alt="">
-                                <div class="team-desc">
-                                    <h4 class="mb-0">Shaleen Patel</h4>
-                                    <p class="mb-1">Chef</p>
-                                    <ul class="list-inline mb-0 team-social-links">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
-                        <div class="col-md-3">
-                            <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-4.jpg" alt="">
-                                <div class="team-desc">
-                                    <h4 class="mb-0">Valay Patel</h4>
-                                    <p class="mb-1">Chef</p>
-                                    <ul class="list-inline mb-0 team-social-links">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End of Team Section -->
+        <!-- End of Order Section -->
+
         <footer class="mastfoot pb-5 bg-white section-padding pb-0">
             <div class="inner container">
                 <div class="row">
@@ -378,8 +293,9 @@
             </div>
         </footer>
     </div>
-
+    <!-- End of Nav bar menu -->
     </div>
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>

@@ -70,8 +70,7 @@ function addItem(id) {
             console.log("NEW one", updatedOldCartObject);
 
             console.log("UPDATED WHOLE CART", oldCartobject);
-            // oldCartobject = [...newCart];
-            // console.log("oldCartobject", oldCartobject);
+
             var updateCartObject = [...updatedOldCartObject, ...newCart];
             console.log("done");
             temp = true;
@@ -89,50 +88,11 @@ function addItem(id) {
               var updateCartObject = [...eval(oldCart), ...newCart];
             }
           }
-
-          //   var newCart = [
-          //     {
-          //       id: oldCartItem["id"],
-          //       product_name: oldCartItem["product_name"],
-          //       price: oldCartItem["price"],
-          //       quantity: oldCartItem["quantity"] + 1,
-          //     },
-          //   ];
-          //   // var updateCartObject = [...eval(oldCart), ...newCart];
-
-          //   console.log("Duplicate Item Found");
-          // } else {
-          //   console.log("New item added to the existing cart.");
-          //   var newCart = [
-          //     {
-          //       id: object["id"],
-          //       product_name: object["product_name"],
-          //       price: object["price"],
-          //       quantity: 1,
-          //     },
-          //   ];
-          //   var updateCartObject = [...eval(oldCart), ...newCart];
-          // }
         }
       }
 
-      // var newCart = [
-      //   {
-      //     id: object["id"],
-      //     product_name: object["product_name"],
-      //     price: object["price"],
-      //     quantity: 1,
-      //   },
-      // ];
-      // if (oldCart == "[]") {
-      //   var updateCartObject = [...newCart];
-      // } else {
-      //   var updateCartObject = [...eval(oldCart), ...newCart];
-      // }
       localStorage.setItem("cart", JSON.stringify(updateCartObject));
     }
-    var f = localStorage.getItem("cart");
-    console.log("Final Cart", f);
   }
   updateCartNumber(); // update the cart number in menu
 }

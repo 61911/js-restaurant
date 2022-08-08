@@ -64,7 +64,6 @@ function loadCart() {
   var finalTotal = 0;
   var deliveryCost = 4;
   var subTotal = 0;
-  var tax = 13;
   for (i = 0; i < cartObject.length; i++) {
     var object = cartObject[i];
     var itemCost = 0;
@@ -83,7 +82,7 @@ function loadCart() {
 
         <div class="card">
         <div class="card-body">
-            <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to
+            <button type="button" class="btn btn-warning btn-block btn-lg" onclick="proceedNow()">Proceed to
                 Pay</button>
         </div>
         </div>

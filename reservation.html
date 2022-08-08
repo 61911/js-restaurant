@@ -28,6 +28,7 @@
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script rel="stylesheet" src="js/validate.js"></script>
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
@@ -143,16 +144,19 @@
                             Book Now
                         </h2>
                     </div>
-                    <form >
+                    <form>
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="fname" name="name" placeholder="Name">
+                                <input type="text" class="form-control"  oninput="validateText('fname', 'first-name')" id="fname" name="name" placeholder="Name" />
+                                <p id="first-name" style="color: red;"></p>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" oninput="validateEmail('email', 'Email')" id="email" name="email" placeholder="Email" required>
+                                <p id="Email" style="color: red;"></p>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
+                                <input type="trxt" class="form-control" id="phoneNumber" oninput="validateNumber('phoneNumber', 'phonenumber-message')" name="phoneNumber" placeholder="Phone">
+                                <p id="phonenumber-message" style="color: red;"></p>
                             </div>
                             <!-- <div class="col-md-6 form-group">
                                 <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
@@ -176,10 +180,10 @@
                                 </div>
                             </div> -->
                             <div class="col-md-6 form-group">
-                                <input type="date" id="datetimepicker4" placeholder="Date" />
+                                <input type="date" class="form-control" id="datetimepicker4" placeholder="Date"  required/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <input type="time" id="datetimepicker3" name="appt"   min="09:00" max="18:00" required>
+                                <input type="time" class="form-control" id="datetimepicker3" name="appt"   min="09:00" max="18:00" required>
 
                             </div>
 

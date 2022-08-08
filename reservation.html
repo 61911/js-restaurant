@@ -28,6 +28,7 @@
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script rel="stylesheet" src="js/validate.js"></script>
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
@@ -41,7 +42,7 @@
 		<p>
 			<span class="fs-16 primary-color">(+68) 120034509</span>
 		</p>
-		<p>info@lambton.com</p>
+		<p>info@yourdomain.com</p>
 	</div>
 </div>	<div id="side-search" class="sidenav">
 	<a href="javascript:void(0)" id="side-search-close">&times;</a>
@@ -96,18 +97,17 @@
                           <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>
                         </div>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="menu.html">Menu</a>
-                    </li>
                 </div>
             </ul>
             
-            <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.html">
+            <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
                 <img src="img/logo.png" alt="">
             </a>
             <ul class="navbar-nav d-flex justify-content-between">
                 <div class="d-flex flex-lg-row flex-column">
-                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="team.html">Team</a>
                     </li>
@@ -115,9 +115,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="reservation.html">Reservation</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link" href="admin.html">Admin</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="login.html">Log in</a>
                     </li>
@@ -130,10 +130,7 @@
             </ul>
         </div>
     </div>
-</nav>		
-
-<!-- Reservation Section -->
-
+</nav>		<!-- Reservation Section -->
 <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(img/reservation-bg.jpg);">
     <div class="container">
         <div class="row">
@@ -150,13 +147,16 @@
                     <form>
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="fname" name="name" placeholder="Name">
+                                <input type="text" class="form-control"  oninput="validateText('fname', 'first-name')" id="fname" name="name" placeholder="Name" />
+                                <p id="first-name" style="color: red;"></p>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" oninput="validateEmail('email', 'Email')" id="email" name="email" placeholder="Email" required>
+                                <p id="Email" style="color: red;"></p>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
+                                <input type="trxt" class="form-control" id="phoneNumber" oninput="validateNumber('phoneNumber', 'phonenumber-message')" name="phoneNumber" placeholder="Phone">
+                                <p id="phonenumber-message" style="color: red;"></p>
                             </div>
                             <!-- <div class="col-md-6 form-group">
                                 <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
@@ -180,10 +180,11 @@
                                 </div>
                             </div> -->
                             <div class="col-md-6 form-group">
-                                <input type="date"  class="form-control" id="datetimepicker4" placeholder="Date" required>
+                                <input type="date" class="form-control" id="datetimepicker4" placeholder="Date"  required/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <input type="time" class="form-control" id="datetimepicker3" name="appt"   min="09:00" max="18:00" required>
+
                             </div>
 
                             <div class="col-md-12 form-group">
@@ -207,8 +208,6 @@
                     </form>
                 </div>
             </div>
-
-
             <div class="col-md-1"></div>
 
 
@@ -223,40 +222,40 @@
                         </h2>
                     </div>
                     <form>
-                        <div class="row">
-                            <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <label class="form-check-label" for="exampleRadios1" >
+                        <div class="row" >
+                            <div class="col-md-6 form-check" >
+                                <input class="form-check-input" type="radio" name="radios" id="centralPkwy" value="325 Central Pkwy W, Mississauga, ON L5B 3X9">
+                                <label class="form-check-label" for="radios1" >
                                     325 Central Pkwy W, Mississauga, ON L5B 3X9
                                 </label>
                             </div>
                             <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2" >
+                                <input class="form-check-input" type="radio" name="radios" id="lakeshoreRdE" value="26 Lakeshore Rd E, Mississauga, ON L5G 1C8">
+                                <label class="form-check-label" for="radios2" >
                                     26 Lakeshore Rd E, Mississauga, ON L5G 1C8
                                 </label>
                             </div>
                             <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                <label class="form-check-label" for="exampleRadios3" >
+                                <input class="form-check-input" type="radio" name="radios" id="StavebankRdS" value="14 Stavebank Rd S, Mississauga, ON L5G 2T1">
+                                <label class="form-check-label" for="radios3" >
                                     14 Stavebank Rd S, Mississauga, ON L5G 2T1
                                 </label>
                             </div>
                             <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                <label class="form-check-label" for="exampleRadios3" >
-                                    31 Lakeshore Rd E, Mississauga, ON L5G 4V5
+                                <input class="form-check-input" type="radio" name="radios" id="lakeshoreRdW" value=" 31 Lakeshore Rd E, Mississauga, ON L5G 4V5">
+                                <label class="form-check-label" for="radios3" >
+                                    31 Lakeshore Rd W, Mississauga, ON L5G 4V5
                                 </label>
                             </div>
                             <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                <label class="form-check-label" for="exampleRadios3" >
-                                    100 Lakeshore Rd E, Mississauga, ON L5G 1E3
+                                <input class="form-check-input" type="radio" name="radios" id="littleJhon" value="100 Little Jhon Rd E, Mississauga, ON L5G 1E3">
+                                <label class="form-check-label" for="radios3" >
+                                    100 Little Jhon Rd E, Mississauga, ON L5G 1E3
                                 </label>
                             </div>
                             <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                <label class="form-check-label" for="exampleRadios3" >
+                                <input class="form-check-input" type="radio" name="radios" id="jhonSt" value=" 7 John St S, Mississauga, ON L5H 2E3">
+                                <label class="form-check-label" for="radios3" >
                                     7 John St S, Mississauga, ON L5H 2E3
                                 </label>
                             </div>

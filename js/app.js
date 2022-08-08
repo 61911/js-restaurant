@@ -19,7 +19,7 @@ var firestore = firebase.firestore()
 
 // variable to access database connection
 
-const db = firestore.collection('formData')
+const db = firestore.collection('newData')
 
 // Get submit form
 
@@ -39,6 +39,12 @@ submitButton.addEventListener("click", (e) => {
     let Time = document.getElementById('datetimepicker3').value
     let selectPerson = document.getElementById('selectPerson').value
     let message = document.getElementById('message').value
+    var selectedLocation;
+document.getElementsByName("radios").forEach(function(elm) {
+  if (elm.checked) {
+    selectedLocation = elm.value;
+  }
+})
 
     // Save Form data to firebase 
     db.doc().set({
@@ -48,7 +54,9 @@ submitButton.addEventListener("click", (e) => {
         datetimepicker4: Date,
         datetimepicker3: Time,
         selectPerson: selectPerson,
-        message: message
+        message: message,
+        selectedLocation: selectedLocation
+        
     }).then(()=>{
         console.log("Data Saved")
     }).catch((error)=> {

@@ -77,7 +77,7 @@ function loadCart() {
         <div class="card mb-4" style="width: 635px; margin-left: 80px; padding: 15px;">
         <p><span style="font-weight: bold;">Sub Total:</span> $${subTotal}</span>
         <p><span style="font-weight: bold; margin-top: -20px;">Delivery Service:</span> $${deliveryCost}</p>
-        <p><span style="font-weight: bold;">Final Price:</span> <span style="color: green; font-weight: bold;">${finalTotal}</span></p>
+        <p><span style="font-weight: bold;">Final Price:</span> <span style="color: green; font-weight: bold;">$${finalTotal}</span></p>
         </div>
 
         <div class="card">

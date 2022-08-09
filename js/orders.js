@@ -1,10 +1,17 @@
 function proceedNow() {
-  var cart = localStorage.getItem("cart");
-  var orders = JSON.stringify(eval(cart));
+  var fullname = document.getElementById("full-name").value;
+  if (fullname == "") {
+    alert("Please provide the full name");
+  } else {
+    var cart = localStorage.getItem("cart");
+    var orders = JSON.stringify(eval(cart));
 
-  localStorage.setItem("orders", orders); // adding cart to orders
-  localStorage.setItem("cart", "[]");
-  alert("Your order is submitted");
+    localStorage.setItem("orders", orders); // adding cart to orders
+    localStorage.setItem("cart", "[]");
+    var name = document.getElementById("full-name").value;
+    localStorage.setItem("name", name);
+    alert("Your order is submitted");
+  }
 }
 
 r(function () {
@@ -48,7 +55,7 @@ function showOrders() {
     itemContainer.innerHTML += orderContainer;
   }
   itemContainer.innerHTML += `
-    <p class="text-muted">Ordered By: Alexander Griffin</p>
+    <p class="text-muted">Ordered By: ${localStorage.getItem("name")}</p>
     <p class="text-muted"> Total:<span style="color: green; font-weight: bold;">
             $${finalTotal}(incl. tax and delivery charge)</span></p>    
     `;

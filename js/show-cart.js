@@ -70,7 +70,7 @@ function loadCart() {
 
   // adding the oder amount and proceed button
   var paymentButton = `
-        <div class="card mb-4" style="width: 635px; margin-left: 80px; padding: 15px;">
+        <div class="card mb-4" style="width: 635px; margin-left: 80px; padding: 25px;">
         <p><span style="font-weight: bold;">Sub Total:</span> $${subTotal}</span>
         <p><span style="font-weight: bold; margin-top: -20px;">Delivery Service:</span> $${deliveryCost}</p>
         <p><span style="font-weight: bold;">Final Price:</span> <span style="color: green; font-weight: bold;">$${finalTotal}</span></p>
@@ -84,5 +84,11 @@ function loadCart() {
         </div>
 
   `;
+  var nameFied = `
+  <input type="text" class="form-control" id="full-name" 
+            placeholder="Enter your full name" style="width: 635px; margin-left: 80px; padding: 15px;"
+            required>
+  `;
+  cartSection.innerHTML += nameFied;
   cartSection.innerHTML += paymentButton;
 }

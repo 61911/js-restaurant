@@ -8,7 +8,6 @@ function proceedNow() {
 }
 
 r(function () {
-  console.log("list of porder");
   showOrders();
 });
 function r(f) {
@@ -18,8 +17,7 @@ function r(f) {
 function showOrders() {
   var orders = localStorage.getItem("orders");
   var ordersObject = eval(orders);
-  console.log(ordersObject);
-  //   document.getElementById("item-container").innerHTML = null;
+
   var itemContainer = document.getElementById("item-container");
 
   var finalTotal = 0;
@@ -36,7 +34,7 @@ function showOrders() {
 
   for (i = 0; i < ordersObject.length; i++) {
     orderItem = ordersObject[i];
-    console.log("orderITem", orderItem);
+
     var orderContainer = `
                 <div class="row align-items-start">
                     <div class="col-8">

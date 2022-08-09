@@ -11,7 +11,6 @@ function login(email, password) {
     email == localUserObject["email"] &&
     password == localUserObject["password"]
   ) {
-    console.log("login sucess");
     location.replace("http://127.0.0.1:5500/admin.html");
   } else {
     alert("Pleae enter correct email and password");

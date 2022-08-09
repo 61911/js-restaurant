@@ -1,7 +1,6 @@
 function loadCart() {
   document.getElementById("cart-section").innerHTML = null;
   var cartSection = document.getElementById("cart-section");
-  console.log("called");
   var cart = localStorage.getItem("cart");
   var cartObject = eval(cart);
 
@@ -14,7 +13,7 @@ function loadCart() {
   cartSection.innerHTML += yourOrder;
   for (i = 0; i < cartObject.length; i++) {
     var object = cartObject[i];
-    console.log(object);
+
     // binding value to html content
     var item = `
   <div class="container h-100 py-1">
@@ -23,23 +22,20 @@ function loadCart() {
           <div class="card rounded-3">
               <div class="card-body p-4">
                   <div class="row d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                              class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
+                     
                       <div class="col-md-3 col-lg-3 col-xl-3">
                           <p class="lead fw-normal mb-2" id="product-name">${object["product_name"]}</p>
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                          <button class="btn btn-link px-2"
+                          <button class="btn btn-link px-2" onclick="minusQuantity(${object["id"]})"
                               onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                               <i class="fas fa-minus"></i>
                           </button>
 
                           <input id="form1" min="0" name="quantity" value="${object["quantity"]}" type="number"
-                              class="form-control form-control-sm" style="width: 40px;" />
+                              class="form-control form-control-sm" style="width: 50px;" />
 
-                          <button class="btn btn-link px-2"
+                          <button class="btn btn-link px-2" onclick="addQuantity(${object["id"]})"
                               onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                               <i class="fas fa-plus"></i>
                           </button>
@@ -48,7 +44,7 @@ function loadCart() {
                           <h5 class="mb-0">$${object["price"]}</h5>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                          <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                          <a href="#!" class="text-danger" onclick="deleteItem(${object["id"]})"><i class="fas fa-trash fa-lg"></i></a>
                       </div>
                   </div>
               </div>

@@ -244,7 +244,6 @@ function addItem(id) {
   // retrieve date from browser local storage
   var items = localStorage.getItem("menu");
   var arrayOfObjects = eval(items);
-  //   console.log(arrayOfObjects);
 
   for (i = 0; i < arrayOfObjects.length; i++) {
     var object = arrayOfObjects[i];
@@ -267,7 +266,6 @@ function addItem(id) {
         var oldCartobject = eval(oldCart);
         var temp = false;
         for (cartItem = 0; cartItem < oldCartobject.length; cartItem++) {
-          console.log("WHOLE CART", oldCartobject);
           var oldCartItem = oldCartobject[cartItem];
 
           if (oldCartItem["id"] == id) {
@@ -283,9 +281,6 @@ function addItem(id) {
             const updatedOldCartObject = oldCartobject.filter(
               (item) => item.id !== id
             );
-            console.log("NEW one", updatedOldCartObject);
-
-            console.log("UPDATED WHOLE CART", oldCartobject);
 
             var updateCartObject = [...updatedOldCartObject, ...newCart];
             console.log("done");
